@@ -113,13 +113,13 @@
       <?php endif; ?>
       <?php print render($title_suffix); ?>
       <?php print $messages; ?>
-      <?php if (!empty($tabs)): ?>
+      <?php if ( !in_array('dd', $user->roles) && !empty($tabs) ): ?>
         <?php print render($tabs); ?>
       <?php endif; ?>
       <?php if (!empty($page['help'])): ?>
         <?php print render($page['help']); ?>
       <?php endif; ?>
-      <?php if (!empty($action_links)): ?>
+      <?php if( !empty($action_links) ): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
       <?php print render($page['content']); ?>
