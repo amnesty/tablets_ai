@@ -143,5 +143,11 @@
         No se aplica ni a País Vasco ni a Navarra.</p></tr>
     </tr></table>
   </footer>
-  <div text-align="center"><a role="menuitem" tabindex="-1" href="<?php print base_path();?>user/logout/?destination=asociacion-tablet">Cerrar sesión</a></div>
+  <?php if( user_is_logged_in() ){ ?>
+    <div text-align="center">
+        <a href="<?php print base_path();?>user/logout/?destination=asociacion-tablet">Cerrar sesión</a>
+        <span>  |  </span>
+        <a href="<?php print base_path();?>node/<?php echo $node->nid; ?>/webform-results">Ver registros gurardados</a>
+    </div>
+  <?php } ?>
 <?php endif; ?>
