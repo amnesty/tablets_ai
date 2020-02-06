@@ -88,8 +88,15 @@ a:hover {
   font-weight: normal;
 }
 
-.capa_idioma {
+.capa_idioma,
+.content_origen,
+.capa_flags .form-type-radios {
   clear: both;
+}
+
+.capa_flags .help-block {
+  visibility: hidden;
+  height: 0px;
 }
 
 .form-managed-file input {
