@@ -58,7 +58,7 @@ jQuery(function($) {
     var account = $("[name='submitted[civicrm_1_contact_1_cg2_fieldset][civicrm_1_contact_1_cg2_custom_8]']");
 
     //quitamos espacios y símbolos
-    if( $(this).val().length <= 28){
+    if( $(this).val().length <= 30){
       $(this).val( $(this).val().replace(/\-/g,'').replace(/[ ]+/g,'') );
     }
 
