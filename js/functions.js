@@ -92,8 +92,6 @@ jQuery(function($) {
       var cc04 = $(this).val().substring(10,20);
 
       var new_iban = calcularIBAN('ES',cc01+cc02+cc03+cc04);
-      //console.log(new_iban);
-      //21009649432923287171
 
       var iban01 = new_iban.substring(0,2);
       var iban02 = new_iban.substring(2,4);
@@ -102,7 +100,7 @@ jQuery(function($) {
       var iban05 = new_iban.substring(12,14);
       var iban06 = new_iban.substring(14,24);
 
-      $(".iban").val(iban03+"-"+iban04+"-"+iban05+"-"+iban06);
+      $(".iban").val(iban01+""+iban02+"-"+iban03+"-"+iban04+"-"+iban05+"-"+iban06);
 
       countryid.val(iban01);
       country.val(iban02);
