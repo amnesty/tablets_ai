@@ -143,7 +143,7 @@
         No se aplica ni a País Vasco ni a Navarra.</p></tr>
     </tr></table>
   </footer>
-  <?php if( user_is_logged_in() ){ ?>
+  <?php if( user_is_logged_in() && in_array('dd', array_values($user->roles)) ){ ?>
     <div text-align="center">
         <a href="<?php print base_path();?>user/logout/?destination=asociacion-tablet">Cerrar sesión</a>
         <span>  |  </span>
