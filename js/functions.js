@@ -112,4 +112,26 @@ jQuery(function($) {
 
 	});
 
+  /******** Volcamos el NIF en el apodo para que funcionen las reglas de deduplicación ******/
+  $('.nickname').change( function(){
+    $("[name='submitted[civicrm_1_contact_1_cg1_fieldset][civicrm_1_contact_1_cg1_custom_2]']").val($('.nickname').val());
+  });
+
+
+  /*** Filtramos los origenes de DD y añadimos origen al inicio para facilitar ***/
+  $("[name='submitted[civicrm_1_membership_1_membership_fieldset][civicrm_1_membership_1_membership_custom_147]'] > option").each( function(){
+    if ( $(this).val().startsWith("08") ){
+      $(this).text( $(this).val()+'# '+$(this).text() );
+    }
+    else {
+      $(this).hide();
+    }
+
+  });
+
+  // Volcamos el origen en el campo source de contact
+  $("[name='submitted[civicrm_1_membership_1_membership_fieldset][civicrm_1_membership_1_membership_custom_147]']").change( function(){
+    $("[name='submitted[civicrm_1_membership_1_membership_fieldset][civicrm_1_contact_1_contact_source]']").val( $("option:selected", this).text() );
+  });
+
 });
