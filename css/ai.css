@@ -1464,7 +1464,7 @@ x:-o-prefocus {
         -webkit-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
         width: auto;
-        border-right: 1px solid #e5e5e5;
+        /*border-right: 1px solid #e5e5e5;*/
         display: block;
         height: 100%;
         right: 5.1428571429rem;
