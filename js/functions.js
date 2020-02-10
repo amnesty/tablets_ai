@@ -50,6 +50,13 @@ jQuery(function($) {
 
 	$(".iban").focusout( function(){
 
+    var countryid = $("[name='submitted[civicrm_1_contact_1_cg2_fieldset][civicrm_1_contact_1_cg2_custom_3]']");
+    var country = $("[name='submitted[civicrm_1_contact_1_cg2_fieldset][civicrm_1_contact_1_cg2_custom_4]']");
+    var entity = $("[name='submitted[civicrm_1_contact_1_cg2_fieldset][civicrm_1_contact_1_cg2_custom_5]']");
+    var office = $("[name='submitted[civicrm_1_contact_1_cg2_fieldset][civicrm_1_contact_1_cg2_custom_6]']");
+    var check = $("[name='submitted[civicrm_1_contact_1_cg2_fieldset][civicrm_1_contact_1_cg2_custom_7]']");
+    var account = $("[name='submitted[civicrm_1_contact_1_cg2_fieldset][civicrm_1_contact_1_cg2_custom_8]']");
+
     //quitamos espacios y símbolos
     if( $(this).val().length <= 28){
       $(this).val( $(this).val().replace(/\-/g,'').replace(/[ ]+/g,'') );
@@ -67,12 +74,12 @@ jQuery(function($) {
 
 			$(".iban").val(iban01+""+iban02+"-"+iban03+"-"+iban04+"-"+iban05+"-"+iban06);
 
-      $(".countryid").val(iban01);
-      $(".country").val(iban02);
-      $(".entity").val(iban03);
-      $(".office").val(iban04);
-      $(".check").val(iban05);
-      $(".account").val(iban06);
+      countryid.val(iban01);
+      country.val(iban02);
+      entity.val(iban03);
+      office.val(iban04);
+      check.val(iban05);
+      account.val(iban06);
 
 		}
 
@@ -97,12 +104,12 @@ jQuery(function($) {
 
       $(".iban").val(iban03+"-"+iban04+"-"+iban05+"-"+iban06);
 
-      $(".countryid").val(iban01);
-      $(".country").val(iban02);
-      $(".entity").val(iban03);
-      $(".office").val(iban04);
-      $(".check").val(iban05);
-      $(".account").val(iban06);
+      countryid.val(iban01);
+      country.val(iban02);
+      entity.val(iban03);
+      office.val(iban04);
+      check.val(iban05);
+      account.val(iban06);
     }
 
 	});
