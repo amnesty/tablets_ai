@@ -33,6 +33,7 @@ stylesheets[all][] = css/tablet.css
 ;;;;;;;;;;;;;;;;;;;;;
 
 scripts[] = js/cuotas.js
+scripts[] = js/functions.js
 
 
 ; For information on choosing the desired method, please read the Drupal
