@@ -67,7 +67,8 @@ a:hover {
   margin-top: -20px;
 }
 
-.capa-fechas div div {
+.capa-fechas div div,
+.capa-inicio-pagos div div {
   width: 100px;
   overflow: hidden;
   float: left;
@@ -75,7 +76,8 @@ a:hover {
   margin-right: 5px;
 }
 
-.capa-fechas div select {
+.capa-fechas div select,
+.capa-inicio-pagos div select {
   width: 130%;
   background-position: 67px center;
   border: 0;
