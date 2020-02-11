@@ -100,7 +100,7 @@ jQuery(function($) {
       var iban05 = new_iban.substring(12,14);
       var iban06 = new_iban.substring(14,24);
 
-      $(".iban").val(iban01+""+iban02+"-"+iban03+"-"+iban04+"-"+iban05+"-"+iban06);
+      $(".iban").val(iban03+"-"+iban04+"-"+iban05+"-"+iban06);
 
       countryid.val(iban01);
       country.val(iban02);
