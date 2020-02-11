@@ -119,8 +119,8 @@ jQuery(function($) {
 
 
   // Volcamos el origen en el campo source de contact
-  $("[name='submitted[civicrm_1_membership_1_membership_fieldset][civicrm_1_membership_1_membership_custom_147]']").change( function(){
-    $("[name='submitted[civicrm_1_membership_1_membership_fieldset][civicrm_1_contact_1_contact_source]']").val( $("option:selected", this).text() );
+  $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]']").change( function(){
+    $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_contact_1_contact_source]']").val( $("option:selected", this).text() );
   });
 
 
