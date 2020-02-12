@@ -128,18 +128,20 @@ jQuery(function($) {
 
   /*** Añadimos origen al inicio para facilitar ***/
   $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]'] > option").each( function(){
-    if ( $(this).val().startsWith("08") ){
       $(this).text( $(this).val()+'# '+$(this).text() );
-    }
   });
   // Y ordenamos
 	reorder();
 
-	$(".preorigen").keyup(function(){
-  	reorder();
-	});
+  if(	$(".preorigen").length > 0 ){
+  	$(".preorigen").keyup(function(){
+    	reorder();
+  	});
+  }
 
 	function reorder(){
+    if(	$(".preorigen").length > 0 ){
+
 			var prefix = $(".preorigen").val();
 			var l = prefix.length;
       /******* Filtramos solo aquellos que coinciden con el prefijo PREORIGEN y es origen de DD ***************/
@@ -152,6 +154,7 @@ jQuery(function($) {
             $(this).show();
           }
 			});
+    }
 	}
 
 });
