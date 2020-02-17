@@ -164,8 +164,10 @@ jQuery(function($) {
     var month = d.getMonth()+1; //va del 0-11
     var year = d.getFullYear();
     if(d.getDate() > 15){
-        month = (((month+1)%13)+1);
-        year = year+1;
+        month = ((month%13)+1);
+        if(month == 1){
+          year = year+1;
+        }
     }
     $("[name='submitted[inicio_de_pagos][civicrm_1_contact_1_cg15_custom_74][day]']").val("1");
     $("[name='submitted[inicio_de_pagos][civicrm_1_contact_1_cg15_custom_74][month]']").val(month);
