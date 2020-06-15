@@ -1259,7 +1259,7 @@ x:-o-prefocus {
     margin-top: 5.1428571429rem
 }
 .header {
-    background-color: #fff;
+    background-color: #000;
     box-shadow: 0 1px 0 rgba(0, 0, 0, .1);
     height: 4.1428571429rem; /* fix helena */
     min-width: 20.7142857143rem;
@@ -1399,7 +1399,7 @@ x:-o-prefocus {
     top: 0;
     background-image: url(../images/sprite.svg), none;
     background-repeat: no-repeat;
-    background-size: 20.85714em 20em;
+    background-size: 20.7em 20em;
     content: ' '
 }
 .logo__link:after {

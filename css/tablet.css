@@ -32,12 +32,17 @@ h1, h2, label, span, p, .btn, input, select, option {
   font-family: TradeGothicLT-BoldCondTwenty, HelveticaNeue-CondensedBold, "Franklin Gothic Medium", sans-serif;
 }
 
+h1 {
+  font-size: 30px;
+}
+
 input, select, option, label {
   font-size: 20px;
 }
 
 p, label {
   font-size: 18px;
+  /*margin: 0px;*/
 }
 
 a:hover {
@@ -147,5 +152,18 @@ a:hover {
 
 .footer {
   padding-top: 0px;
-  margin-top: 20px;
+  margin-top: 10px;
+  border-top: 0px;
+}
+
+.footer table {
+  margin-top: 0px;
+}
+
+.panel-default {
+  border-color: #fff;
+}
+
+.panel-body {
+  padding: 0px;
 }
