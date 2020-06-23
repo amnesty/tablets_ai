@@ -167,3 +167,11 @@ a:hover {
 .panel-body {
   padding: 0px;
 }
+
+.input-group-btn {
+  visibility: hidden;
+}
+
+#menu-dd {
+  text-align: center;
+}

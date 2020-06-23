@@ -144,7 +144,7 @@
     </tr></table>
   </footer>
   <?php if( user_is_logged_in() && in_array('dd', array_values($user->roles)) ){ ?>
-    <div text-align="center">
+    <div id="menu-dd" text-align="center">
         <a href="<?php print base_path();?>user/logout/?destination=asociacion-tablet">Cerrar sesión</a>
         <span>  |  </span>
         <a href="<?php print base_path();?>node/<?php echo $node->nid; ?>/webform-results">Ver registros gurardados</a>
