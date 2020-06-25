@@ -64,7 +64,7 @@ jQuery(function($) {
 
   // Al inicializar, añadimos a cada cuota con un identificador cuota-x
   var class_id = 1;
-  var cuotas = $(".form-item-submitted-civicrm-1-contact-1-cg15-fieldset-civicrm-1-contact-1-cg15-custom-48").filter( function(){
+  var cuotas = $(".form-item-submitted-civicrm-1-contact-1-cg15-fieldset-caja7-civicrm-1-contact-1-cg15-custom-48").filter( function(){
     return $(this).hasClass("form-type-radio");
   });
   var num_cuotas = cuotas.length;
