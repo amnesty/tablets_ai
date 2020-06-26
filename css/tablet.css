@@ -51,6 +51,7 @@ a:hover {
 
 .form-control {
   font-size: 18px;
+  height: 40px;
 }
 
 .form-type-radio {
@@ -79,7 +80,7 @@ a:hover {
   width: 100px;
   overflow: hidden;
   float: left;
-  height: 50px;
+  height: 40px;
   margin-right: 5px;
 }
 
