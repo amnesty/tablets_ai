@@ -64,7 +64,9 @@ a:hover {
 }
 
 .capa_otra_cuota {
-  float: left;
+  /*float: left;*/
+  margin-top: 45px;
+  margin-left: -5px;
 }
 
 .otra_cuota {

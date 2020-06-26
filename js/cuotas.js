@@ -100,7 +100,7 @@ jQuery(function($) {
   $(".frecuencia").change( function() {
 
     // Escondemos "otra cantidad" por si acaso porque por defecto marcamos la opción del medio
-    $('.capa-other-quant').hide();
+    $('.capa_otra_cuota').hide();
 
     switch( $(".frecuencia").val() ) {
       case '12': //Mensual
