@@ -88,8 +88,8 @@ a:hover {
 .capa-inicio-pagos div select {
   width: 130%;
   background-position: 67px center;
-  border: 0;
-  height: 50px;
+  border: 1px solid #ccc;
+  height: 40px;
   position: relative;
   float: left;
   margin-right: 10px;
