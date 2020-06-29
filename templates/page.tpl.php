@@ -139,7 +139,7 @@
     <?php //print render($page['footer']); ?>
     <table><tr>
       <td><img height="60" src="<?php print(base_path().drupal_get_path('theme', 'tablets_ai')); ?>/images/icon-hand.png" /></td>
-      <td><p>Todas tus aportaciones desgravan un 75% los primeros 150€, y a partir de esa cifra, el 30%.
+      <td><p>Todas tus aportaciones desgravan un 80% los primeros 150€, y a partir de esa cifra, el 35%.
         No se aplica ni a País Vasco ni a Navarra.</p></tr>
     </tr></table>
   </footer>
