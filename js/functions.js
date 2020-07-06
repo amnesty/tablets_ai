@@ -48,6 +48,69 @@ jQuery(function($) {
     return codigoPais+''+digitoControl+''+ccc;
   }
 
+  function getProvince( postalcode ){
+
+    var prefix = postalcode.substring(0,2);
+    //console.log(prefix);
+
+    var provinces = {};
+    provinces['01'] = 2423;
+    provinces['02'] = 2424;
+    provinces['03'] = 2425;
+    provinces['04'] = 2426;
+    provinces['05'] = 2428;
+    provinces['06'] = 2429;
+    provinces['07'] = 2430;
+    provinces['08'] = 2431;
+    provinces['09'] = 2432;
+    provinces['10'] = 2433;
+    provinces['11'] = 2434;
+    provinces['12'] = 2436;
+    provinces['13'] = 2437;
+    provinces['14'] = 10056;
+    provinces['15'] = 2446;
+    provinces['16'] = 2438;
+    provinces['17'] = 2439;
+    provinces['18'] = 2440;
+    provinces['19'] = 2441;
+    provinces['20'] = 2442;
+    provinces['21'] = 2443;
+    provinces['22'] = 2444;
+    provinces['23'] = 2445;
+    provinces['24'] = 2449;
+    provinces['25'] = 2450;
+    provinces['26'] = 2447;
+    provinces['27'] = 2451;
+    provinces['28'] = 2452;
+    provinces['29'] = 2453;
+    provinces['30'] = 2454;
+    provinces['31'] = 2455;
+    provinces['32'] = 2456;
+    provinces['33'] = 2427;
+    provinces['34'] = 2457;
+    provinces['35'] = 2448;
+    provinces['36'] = 2458;
+    provinces['37'] = 2459;
+    provinces['38'] = 2460;
+    provinces['39'] = 2435;
+    provinces['40'] = 2461;
+    provinces['41'] = 2462;
+    provinces['42'] = 2463;
+    provinces['43'] = 2464;
+    provinces['44'] = 2465;
+    provinces['45'] = 10055;
+    provinces['46'] = 2466;
+    provinces['47'] = 2467;
+    provinces['48'] = 2468;
+    provinces['49'] = 2469;
+    provinces['50'] = 2470;
+    provinces['51'] = 2471;
+    provinces['52'] = 2472;
+
+    var id = provinces[prefix];
+    return id;
+  }
+
 	$(".iban").focusout( function(){
 
     var countryid = $("[name='submitted[civicrm_1_contact_1_cg2_fieldset][civicrm_1_contact_1_cg2_custom_3]']");
@@ -130,15 +193,23 @@ jQuery(function($) {
     $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_contact_1_contact_source]']").val( $("option:selected", this).text() );
   });
 
+  // Cuando cambia el CP, calculamos la provincia
+  $(".cp").focusout( function(){
+    //console.log(getProvince( $(this).val() ));
+    $("[name='submitted[direccion_postal][caja5][civicrm_1_contact_1_address_state_province_id]']").val( getProvince( $(this).val() ) );
+  });
+
 
 	/************ PRE-ORIGEN ****************/
 
   /*** Añadimos origen al inicio para facilitar ***/
-  $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]'] > option").each( function(){
-      $(this).text( $(this).val()+'# '+$(this).text() );
-  });
-  // Y ordenamos
-	reorder();
+  if( $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]']").length > 0 ){
+    $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]'] > option").each( function(){
+        $(this).text( $(this).val()+'# '+$(this).text() );
+    });
+    // Y ordenamos
+	 reorder();
+  }
 
   if(	$(".preorigen").length > 0 ){
   	$(".preorigen").keyup(function(){
