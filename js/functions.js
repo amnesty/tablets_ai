@@ -114,8 +114,15 @@ jQuery(function($) {
 
   /******** Volcamos el NIF en el apodo para que funcionen las reglas de deduplicación ******/
   $('.nickname').change( function(){
-    $("[name='submitted[civicrm_1_contact_1_cg1_fieldset][caja_nif][civicrm_1_contact_1_cg1_custom_2]']").val($('.nickname').val());
+    $("[name='submitted[civicrm_1_contact_1_cg1_fieldset][caja3][civicrm_1_contact_1_cg1_custom_2]']").val($('.nickname').val());
   });
+
+
+  // Esconder caja error correo
+  if( $(".alert-danger").text().indexOf("No se pudo enviar el correo") > 0 ){
+      //console.log(1)
+      (".alert-danger").hide();
+  }
 
 
   // Volcamos el origen en el campo source de contact
