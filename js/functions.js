@@ -252,4 +252,26 @@ jQuery(function($) {
     $("[name='submitted[inicio_de_pagos][civicrm_1_contact_1_cg15_custom_74][year]']").val(year);
   }
 
+  // Make the IBAN fields to automatically move the cursor through when any field is filled in.
+  $(".country").keyup( function(){
+    if($(".country").val().length >= 2){
+        $(".entity").focus();
+    }
+  });
+  $(".entity").keyup( function(){
+    if($(".entity").val().length >= 4){
+        $(".office").focus();
+    }
+  });
+  $(".office").keyup( function(){
+    if($(".office").val().length >= 4){
+        $(".check").focus();
+    }
+  });
+  $(".check").keyup( function(){
+    if($(".check").val().length >= 2){
+        $(".account").focus();
+    }
+  });
+
 });
