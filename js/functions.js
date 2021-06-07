@@ -189,7 +189,7 @@ jQuery(function($) {
 
 
   // Volcamos el origen en el campo source de contact
-  $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]']").change( function(){
+  $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_contact_1_cg1_custom_100]']").change( function(){
     $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_contact_1_contact_source]']").val( $("option:selected", this).text() );
   });
 
@@ -203,8 +203,8 @@ jQuery(function($) {
 	/************ PRE-ORIGEN ****************/
 
   /*** Añadimos origen al inicio para facilitar ***/
-  if( $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]']").length > 0 ){
-    $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]'] > option").each( function(){
+  if( $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_contact_1_cg1_custom_100]']").length > 0 ){
+    $("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_contact_1_cg1_custom_100]'] > option").each( function(){
         $(this).text( $(this).val()+'# '+$(this).text() );
     });
     // Y ordenamos
@@ -223,9 +223,9 @@ jQuery(function($) {
 			var prefix = $(".preorigen").val();
 			var l = prefix.length;
       /******* Filtramos solo aquellos que coinciden con el prefijo PREORIGEN y es origen de DD ***************/
-			$("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_membership_1_membership_custom_147]'] > option").each( function() {
+			$("[name='submitted[civicrm_1_membership_1_membership_fieldset][caja_origenes][civicrm_1_contact_1_cg1_custom_100]'] > option").each( function() {
 					var val = $(this).val();
-					if( !val.includes(prefix) || !$(this).val().startsWith("080") ){
+					if( !val.includes(prefix) || !$(this).val().startsWith("0") ){
 						$(this).hide();
 					}
           else {
