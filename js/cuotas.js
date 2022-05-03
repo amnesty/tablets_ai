@@ -1,133 +1,67 @@
-/* JS especifico para la ponderación de las cantidades de las cuotas en función de la periodicidad */
+/**
+ * JS especifico para la ponderación de las cantidades de las cuotas
+ * en función de la periodicidad y para la unión de las partes de
+ * una cuenta IBAN en un único campo.
+ */
 
 jQuery(function($) {
 
-  function valores_mensuales(){
-    $('.cuota-1').show();
-    $('.cuota-2').show();
-    $('.cuota-3').show();
-    $('.cuota-4').hide();
-    $('.cuota-5').hide();
-    $('.cuota-6').hide();
-    $('.cuota-7').hide();
-    $('.cuota-8').hide();
-    $('.cuota-9').hide();
-    $('.cuota-10').hide();
-    $('.cuota-11').hide();
-    $('.cuota-12').hide();
+  /* Cuotas */
+
+  function cuotaActual() {
+      let sugeridaSeleccionada = $("input.cuota_sugerida:visible:checked").val();
+
+      if (sugeridaSeleccionada != 0) {
+          return sugeridaSeleccionada;
+      }
   }
 
-  function valores_trimestrales(){
-    $('.cuota-1').hide();
-    $('.cuota-2').hide();
-    $('.cuota-3').hide();
-    $('.cuota-4').show();
-    $('.cuota-5').show();
-    $('.cuota-6').show();
-    $('.cuota-7').hide();
-    $('.cuota-8').hide();
-    $('.cuota-9').hide();
-    $('.cuota-10').hide();
-    $('.cuota-11').hide();
-    $('.cuota-12').hide();
+  function controlaCuotasSugeridas() {
+      let frecuencia = $("select.frecuencia").val();
+      $(".cuotas").hide();
+      $(`.sugeridas_periodicidad_${frecuencia}`).show();
   }
 
-  function valores_semestrales(){
-    $('.cuota-1').hide();
-    $('.cuota-2').hide();
-    $('.cuota-3').hide();
-    $('.cuota-4').hide();
-    $('.cuota-5').hide();
-    $('.cuota-6').hide();
-    $('.cuota-7').show();
-    $('.cuota-8').show();
-    $('.cuota-9').show();
-    $('.cuota-10').hide();
-    $('.cuota-11').hide();
-    $('.cuota-12').hide();
+  function controlaOtraCuota() {
+      let cuota = cuotaActual();
+
+      if (!cuota) {
+          $("input.otra_cuota").parent().show();
+      } else {
+          $("input.otra_cuota").val(0);
+          $("input.otra_cuota").parent().hide();
+      }
   }
 
-  function valores_anuales(){
-    $('.cuota-1').hide();
-    $('.cuota-2').hide();
-    $('.cuota-3').hide();
-    $('.cuota-4').hide();
-    $('.cuota-5').hide();
-    $('.cuota-6').hide();
-    $('.cuota-7').hide();
-    $('.cuota-8').hide();
-    $('.cuota-9').hide();
-    $('.cuota-10').show();
-    $('.cuota-11').show();
-    $('.cuota-12').show();
-  }
-
-  // Al inicializar, añadimos a cada cuota con un identificador cuota-x
-  var class_id = 1;
-  var cuotas = $(".form-item-submitted-civicrm-1-contact-1-cg15-fieldset-caja7-civicrm-1-contact-1-cg15-custom-48").filter( function(){
-    return $(this).hasClass("form-type-radio");
-  });
-  var num_cuotas = cuotas.length;
-  cuotas.each(function(){
-     //marcamos todas las cuotas con un class específico menos la última que es "otra cantidad" que siempre se tiene que mostrar
-     if ( class_id < num_cuotas ){
-        $(this).addClass("cuota-"+class_id);
-        $(this).find(".cuota").addClass("cuota-"+class_id);
-     }
-     class_id++;
+  $("input.cuota_sugerida").change(function() {
+      controlaOtraCuota();
   });
 
-  // Al inicializar, vemos qué valores hay que poner según la periodicidad
-  switch( $(".frecuencia").val() ) {
-    case '12': //Mensual
-    valores_mensuales();
-    break;
-
-    case '4': //Trimestral
-    valores_trimestrales();
-    break;
-
-    case '2': //Semestral
-    valores_semestrales();
-    break;
-
-    case '1': //Anual
-    valores_anuales();
-    break;
-  }
-
-  /***** Cada vez que cambia la periodicidad, revisamos los valores *****/
-  $(".frecuencia").change( function() {
-
-    // Escondemos "otra cantidad" por si acaso porque por defecto marcamos la opción del medio
-    $('.capa_otra_cuota').hide();
-
-    switch( $(".frecuencia").val() ) {
-      case '12': //Mensual
-      //Valor por defecto
-      $(".cuota-2").prop("checked",true);
-      valores_mensuales();
-      break;
-
-      case '4': //Trimestral
-      //Valor por defecto
-      $(".cuota-5").prop("checked",true);
-      valores_trimestrales();
-      break;
-
-      case '2': //Semestral
-      //Valor por defecto
-      $(".cuota-8").prop("checked",true);
-      valores_semestrales();
-      break;
-
-      case '1': //Anual
-      //Valor por defecto
-      $(".cuota-11").prop("checked",true);
-      valores_anuales();
-      break;
-    }
-
+  $("select.frecuencia").change(function() {
+      controlaCuotasSugeridas();
+      controlaOtraCuota();
   });
 
+  controlaCuotasSugeridas();
+  controlaOtraCuota();
+
+  $("select.frecuencia").closest("form")
+      .addClass("webform-conditional-processed");
+
+  /* Cuenta bancaria */
+
+  function cuentaActual()
+  {
+      return $('.iban[name$="[iban_pais]"]').val() +
+          $('.iban[name$="[iban_digitoscontrol_sepa]"]').val() +
+          $('.iban[name$="[iban_entidad_bancaria]"]').val() +
+          $('.iban[name$="[iban_oficina_bancaria]"]').val() +
+          $('.iban[name$="[iban_digitoscontrol_es]"]').val() +
+          $('.iban[name$="[iban_cuenta]"]').val();
+  }
+
+  $('input.iban').change(function () {
+      let iban = cuentaActual();
+      $('.iban[name$="[civicrm_1_membership_1_membership_custom_128]"]').val(iban);
+  });
 });
