@@ -26,9 +26,10 @@ jQuery(function($) {
       let cuota = cuotaActual();
 
       if (!cuota) {
+	  $("input.otra_cuota").val("");
           $("input.otra_cuota").parent().show();
       } else {
-          $("input.otra_cuota").val(0);
+          $("input.otra_cuota").val(cuota);
           $("input.otra_cuota").parent().hide();
       }
   }
